@@ -15,9 +15,9 @@ public class PersonServiceImpl {
 	@Autowired
 	PersonRepository personRepository;
 	
-	public Person findById(long id){
-		return personRepository.findById(id);
-	}
+//	public Person findById(long id){
+//		return personRepository.findById(id);
+//	}
 	
 	public Person savePerson(Person person){
 		return personRepository.save(person);
