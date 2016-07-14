@@ -1,0 +1,13 @@
+./
+../
+.git/
+.idea/
+.build/
+.settings/
+.mvn/
+mvnw*
+mvnw.cmd
+target
+fase2.iml
+.project
+.classpath
