@@ -6,13 +6,15 @@
 <thead>
 <th>firstname &hearts;</th>
 <th>lastname</th>
+<th>age</th>
 </thead>
 <tbody>
 <tr th:each="person : ${persons}">
 <td th:text="${person.firstName}"></td>
-        <td th:text="${person.lastname}"></td>
-        </tr>
-      </tbody>
+<td th:text="${person.lastname}"></td>
+<td th:text="${person.age}"></td>
+</tr>
+</tbody>
 </table>
 
 </body>

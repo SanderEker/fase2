@@ -12,6 +12,7 @@ public class Person {
 	private long id;
 	private String firstName;
 	private String lastname;
+	private String age;
 	
 	public long getId() {
 		return id;
@@ -32,9 +33,15 @@ public class Person {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
+	}
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", firstName=" + firstName + ", lastname=" + lastname + "]";
+		return "Person [id=" + id + ", firstName=" + firstName + ", lastname=" + lastname + ", age=" + age + "]";
 	}
 
 }
