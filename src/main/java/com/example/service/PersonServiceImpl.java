@@ -27,5 +27,10 @@ public class PersonServiceImpl {
 		return (Collection<Person>)personRepository.findAll();
 	}
 	
+	public boolean personExists(Person person) {
+		
+		return false;
+	}
+	
 
 }

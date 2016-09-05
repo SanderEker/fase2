@@ -29,10 +29,13 @@ public class WebController {
 	
 	@RequestMapping("personSave")
 		public String savePerson(@ModelAttribute("person")Person person, Model model){
-		personServiceImpl.savePerson(person);
-		model.addAttribute("persons",personServiceImpl.findAllPersons());
-			return "person";
-		
+		if (!personServiceImpl.personExists(person)) {
+			personServiceImpl.savePerson(person);
+			model.addAttribute("persons",personServiceImpl.findAllPersons());
+				return "person";
+		} else {
+			return "person already exists";
+		}
 	}
 	
 	@RequestMapping("person")
