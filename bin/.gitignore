@@ -1,0 +1,11 @@
+./
+../
+.git/
+.idea/
+.build/
+.settings/
+.mvn/
+target
+fase2.iml
+.project
+.classpath
