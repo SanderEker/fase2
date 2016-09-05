@@ -9,4 +9,4 @@ target
 fase2.iml
 .project
 .classpath
-application.properties
+**/application.properties
