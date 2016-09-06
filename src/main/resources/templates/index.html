@@ -4,7 +4,7 @@
 <title>index</title>
 </head>
 <body>
-<h1>Voer persoon in</h1>
+<h1>Insert Person</h1>
 <form th:object="${person}" th:action="personSave" method="post">
 <input type="text" th:field="*{firstName}" placeholder="firstname"/>
 <input type="text" th:field="*{lastname}" placeholder="lastname"/>
