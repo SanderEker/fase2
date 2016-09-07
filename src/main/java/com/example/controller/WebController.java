@@ -17,22 +17,20 @@ public class WebController {
 	
 	@RequestMapping("/")
 	public String start(Model model){
-//	
-//	Person person = new Person();
-//	person.setFirstName("barry");
-//	person.setLastname("cool");
-//	
-//	personServiceImpl.savePerson(person);
-	model.addAttribute("person", new Person());
+//		Person person = new Person();
+//		person.setFirstName("barry");
+//		person.setLastname("cool");
+//		personServiceImpl.savePerson(person);
+		model.addAttribute("person", new Person());
 	return "index";
 	}
 	
 	@RequestMapping("personSave")
-		public String savePerson(@ModelAttribute("person")Person person, Model model){
+	public String savePerson(@ModelAttribute("person")Person person, Model model){
 		if (!personServiceImpl.personExists(person)) {
 			personServiceImpl.savePerson(person);
 			model.addAttribute("persons",personServiceImpl.findAllPersons());
-				return "person";
+			return "person";
 		} else {
 			return "person already exists";
 		}
@@ -40,7 +38,6 @@ public class WebController {
 	
 	@RequestMapping("person")
 	public String showPersons(Model  model){
-		
 		model.addAttribute("persons",personServiceImpl.findAllPersons());
 		return "person";
 	}
