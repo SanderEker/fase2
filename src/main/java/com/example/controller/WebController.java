@@ -17,14 +17,14 @@ public class WebController {
 	
 	@RequestMapping("/")
 	public String start(Model model){
-//	
-//	Person person = new Person();
-//	person.setFirstName("barry");
-//	person.setLastname("cool");
-//	
-//	personServiceImpl.savePerson(person);
-	model.addAttribute("person", new Person());
-	return "index";
+	//	
+	//	Person person = new Person();
+	//	person.setFirstName("barry");
+	//	person.setLastname("cool");
+	//	
+	//	personServiceImpl.savePerson(person);
+		model.addAttribute("person", new Person());
+		return "index";
 	}
 	
 	@RequestMapping("personSave")
@@ -32,17 +32,37 @@ public class WebController {
 		if (!personServiceImpl.personExists(person)) {
 			personServiceImpl.savePerson(person);
 			model.addAttribute("persons",personServiceImpl.findAllPersons());
-				return "person";
+			return "person";
 		} else {
-			return "person already exists";
+			return "personExists";
 		}
 	}
 	
 	@RequestMapping("person")
-	public String showPersons(Model  model){
-		
+	public String showPersons(Model model){
 		model.addAttribute("persons",personServiceImpl.findAllPersons());
 		return "person";
 	}
+
+	@RequestMapping("sorted")
+	public String showPersonsSorted(Model model){
+		model.addAttribute("persons",personServiceImpl.findAllPersonsSorted());
+		return "person";
+	}
+	
+	@RequestMapping("delete")
+	public String deleteSelectedRecords(Model model){
+		model.addAttribute("persons",personServiceImpl.findAllPersonsSorted());
+		return "person";
+	}
+	
+	/*@RequestMapping("personExists")
+	public String showPersonExists(Model model){
+		Person p = new Person();
+		p.setFirstName("Bob");
+		p.setLastname("Jones");
+		model.addAttribute("p", p);
+		return "personExists";
+	}*/
 
 }
