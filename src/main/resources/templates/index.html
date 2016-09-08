@@ -1,18 +1,20 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>index</title>
-</head>
-<body>
-<h1>Insert Person</h1>
-<form th:object="${person}" th:action="personSave" method="post">
-<input type="text" th:field="*{firstname}" placeholder="firstname"/>
-<input type="text" th:field="*{lastname}" placeholder="lastname"/>
-<input type="number" th:field="*{age}" placeholder="age"/>
-<input type="submit" value="Submit"/>
-</form>
-<form th:object="${person}" th:action="findAllPersons" method="get">
-<input type="submit" value="Show All"/>
-</form>
-</body>
+	<head>
+		<title>index</title>
+	</head>
+	<body>
+		<form th:object="${person}" th:action="personSave" method="post">
+			<fieldset>
+				<legend>Insert Person</legend>
+				<input type="text" th:field="*{firstname}" placeholder="firstname"/>
+				<input type="text" th:field="*{lastname}" placeholder="lastname"/>
+				<input type="number" th:field="*{age}" placeholder="age"/>
+				<input type="submit" value="Submit"/>
+				<form th:object="${person}" th:action="findAllPersons" method="get">
+				<input type="submit" value="Show All"/>
+				</form>
+			</fieldset>
+		</form>
+	</body>
 </html>
