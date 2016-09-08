@@ -17,21 +17,23 @@ public class PersonServiceImpl {
 	@Autowired
 	PersonRepository personRepository;
 	
-//	public Person findById(long id){
-//		return personRepository.findById(id);
-//	}
-	
 	public Person savePerson(Person person){
 		return personRepository.save(person);
 	}
 	
-	public Collection<Person> findAllPersons(){
-		return (Collection<Person>)personRepository.findAll();
-	}
-	
-	public boolean personExists(Person person) {
-		
-		return false;
+	public Iterable<Person> findAllPersons(){
+		return personRepository.findAll();
 	}
 
+	public Iterable<Person> showAllByOrderByFirstnameAsc() {
+		return personRepository.findAllByOrderByFirstnameAsc();
+	}
+	
+	public Iterable<Person> showAllByOrderByLastnameAsc() {
+		return personRepository.findAllByOrderByLastnameAsc();
+	}
+	
+	public Iterable<Person> showAllByOrderByAgeAsc() {
+		return personRepository.findAllByOrderByAgeAsc();
+	}
 }

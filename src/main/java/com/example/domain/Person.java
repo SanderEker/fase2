@@ -10,7 +10,7 @@ public class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String firstName;
+	private String firstname;
 	private String lastname;
 	private String age;
 	
@@ -21,11 +21,11 @@ public class Person {
 		this.id = id;
 	}
 	
-	public String getFirstName() {
-		return firstName;
+	public String getFirstname() {
+		return firstname;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 	public String getLastname() {
 		return lastname;
@@ -41,7 +41,7 @@ public class Person {
 	}
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", firstName=" + firstName + ", lastname=" + lastname + ", age=" + age + "]";
+		return "Person [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", age=" + age + "]";
 	}
 
 }
