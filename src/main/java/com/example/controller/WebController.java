@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.domain.Person;
 import com.example.service.PersonServiceImpl;
@@ -32,7 +34,7 @@ public class WebController {
 		if (!personServiceImpl.personExists(person)) {
 			personServiceImpl.savePerson(person);
 			model.addAttribute("persons",personServiceImpl.findAllPersons());
-			return "person";
+			return "sorted";
 		} else {
 			return "personExists";
 		}
@@ -47,13 +49,13 @@ public class WebController {
 	@RequestMapping("sorted")
 	public String showPersonsSorted(Model model){
 		model.addAttribute("persons",personServiceImpl.findAllPersonsSorted());
-		return "person";
+		return "sorted";
 	}
 	
-	@RequestMapping("delete")
-	public String deleteSelectedRecords(Model model){
-		model.addAttribute("persons",personServiceImpl.findAllPersonsSorted());
-		return "person";
+	@RequestMapping(value = {"/delete/{id}"}, method = RequestMethod.GET)
+	public String deleteSelectedRecords(@PathVariable("id") Long id){
+		personServiceImpl.deletePerson(id);
+		return "redirect:/person";
 	}
 	
 	/*@RequestMapping("personExists")

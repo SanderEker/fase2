@@ -18,13 +18,12 @@
 			</thead>
 			<tbody>
 				<tr th:each="person : ${persons}">
-					<td><input type="checkbox" th:value="${person.id}"/></td>
+					<td><a th:href="@{/delete/{id}(id=${person.id})}">Delete</a></td>
 				    <td class="id" th:text="${person.id}"></td>
 					<td th:text="${person.firstName}"></td>
 				    <td th:text="${person.lastname}"></td>
 			    </tr>
 		    </tbody>
 		</table>
-		<button type="submit" value="Submit">Delete selected records</button>
 	</body>
 </html>

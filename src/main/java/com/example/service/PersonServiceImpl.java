@@ -34,8 +34,12 @@ public class PersonServiceImpl {
 		return unsorted;
 	}
 	
+	public void deletePerson(long id) {
+		personRepository.delete(id);
+	}
+	
 	public boolean personExists(Person person) {
-		
+		//List<Person> unsorted = (List<Person>)personRepository.findByLastname();
 		return false;
 	}
 	
