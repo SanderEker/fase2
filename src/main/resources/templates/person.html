@@ -2,28 +2,34 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
 <head><title>person</title></head>
 <body>
-	<table >
-		<thead>
-			<th>Firstname &hearts;</th>
-			<th>Lastname</th>
-			<th>Age</th>
-		</thead>
-		<tbody>
-			<form th:object="${person}" th:action="sortByFirstname" method="get">
-			<input type="submit" value="Sort by Firstname"/>
-			</form>
-			<form th:object="${person}" th:action="sortByLastname" method="get">
-			<input type="submit" value="Sort by Lastname"/>
-			</form>
-			<form th:object="${person}" th:action="sortByAge" method="get">
-			<input type="submit" value="Sort by Age"/>
-			</form>
-			<tr th:each="person : ${persons}">
-			<td th:text="${person.firstname}"></td>
-			<td th:text="${person.lastname}"></td>
-			<td th:text="${person.age}"></td>
-			</tr>
-		</tbody>
-	</table>
-</body>
+	<fieldset>
+		<legend>List of people</legend>	
+				<table>
+					<form th:object="${person}" th:action="sortByFirstname" method="get">
+						<input type="submit" value="Sort by Firstname"/>
+					</form>
+					<form th:object="${person}" th:action="sortByLastname" method="get">
+						<input type="submit" value="Sort by Lastname"/>
+					</form>
+					<form th:object="${person}" th:action="sortByAge" method="get">
+						<input type="submit" value="Sort by Age"/>
+					</form>
+				</table>
+				<table ><br/>
+						<th>Firstname &hearts;</th>
+						<th>Lastname</th>
+						<th>Age</th>
+						<tr th:each="person : ${persons}">
+							<td th:text="${person.firstname}"></td>
+							<td th:text="${person.lastname}"></td>
+							<td th:text="${person.age}"></td>
+						</tr>
+				</table>
+				<table><br/>
+					<form action="/">
+						<input type="submit" value="Insert Person"/>
+					</form>
+				</table>
+		</fieldset>
+	</body>
 </html>
