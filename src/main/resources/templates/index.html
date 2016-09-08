@@ -7,14 +7,15 @@
 		<form th:object="${person}" th:action="personSave" method="post">
 			<fieldset>
 				<legend>Insert Person</legend>
-				<input type="text" th:field="*{firstname}" placeholder="firstname"/>
-				<input type="text" th:field="*{lastname}" placeholder="lastname"/>
-				<input type="number" th:field="*{age}" placeholder="age"/>
+				<input type="text" th:field="*{firstname}" placeholder="firstname"/><br/><br/>
+				<input type="text" th:field="*{lastname}" placeholder="lastname"/><br/><br/>
+				<input type="number" th:field="*{age}" placeholder="age"/><br/><br/><br/>
 				<input type="submit" value="Submit"/>
-				<form th:object="${person}" th:action="findAllPersons" method="get">
-				<input type="submit" value="Show All"/>
-				</form>
 			</fieldset>
+		</form>
+		<br/>
+		<form th:object="${person}" th:action="findAllPersons" method="get">
+			<input type="submit" value="Show All"/>
 		</form>
 	</body>
 </html>
